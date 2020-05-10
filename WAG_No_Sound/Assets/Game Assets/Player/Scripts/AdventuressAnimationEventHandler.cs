@@ -23,6 +23,8 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
 
     private PlayerFoot foot_L;
     private PlayerFoot foot_R;
+    public AudioClip footsteps;
+    AudioSource audioSource;
 
     #region private variables
     private bool hasPausedMovement;
@@ -34,6 +36,8 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
     {
         GameObject L = GameObject.Find("toe_left");
         GameObject R = GameObject.Find("toe_right");
+        audioSource = GetComponent<AudioSource>();
+
         if (L != null)
         {
             foot_L = L.GetComponent<PlayerFoot>();
@@ -88,6 +92,7 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
                     if (foot_L.FootstepSound.Validate())
                     { 
                         foot_L.PlayFootstepSound();
+                        audioSource.Play();
                         particlePosition = foot_L.transform.position;
                         FootstepParticles(particlePosition);
                     }
@@ -97,6 +102,7 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
                     if (foot_R.FootstepSound.Validate())
                     {
                         foot_R.PlayFootstepSound();
+                        audioSource.Play();
                         particlePosition = foot_R.transform.position;
                         FootstepParticles(particlePosition);
                     }

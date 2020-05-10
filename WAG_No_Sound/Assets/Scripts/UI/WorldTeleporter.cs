@@ -15,6 +15,7 @@ public class WorldTeleporter : MonoBehaviour
 {
     //TODO: Custom inspector with EditorGUI.HelpBox("Tag all teleport destinations with the tag 'TeleportDestination'");
     private TeleportDestination[] destinations;
+    
 
     [Header("Wwise")]
     public AK.Wwise.Event TeleportSelectSound;
@@ -22,6 +23,9 @@ public class WorldTeleporter : MonoBehaviour
     [Header("UI Objects")]
     public Dropdown dropdown;
     public string destinationKeyPrefix = "dropdown_";
+
+    [Header("SFX")]
+    public AudioSource tpAudio;
 
     [Header("VFX")]
     public GameObject teleportParticles;
@@ -32,6 +36,7 @@ public class WorldTeleporter : MonoBehaviour
     private void Awake()
     {
         LanguageManager.OnLanguageChange += ConfigureTeleportLocations;
+        tpAudio = GetComponent<AudioSource>();
     }
 
     private void OnDestroy()
@@ -74,7 +79,7 @@ public class WorldTeleporter : MonoBehaviour
     public void Teleport()
     {
         dropdown.Hide();
-
+        tpAudio.Play();
         if (dropdown.value != 0)
         {
             PlayerManager.Instance.player.transform.position = destinations[dropdown.value - 1].transform.position;

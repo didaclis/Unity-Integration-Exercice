@@ -17,6 +17,7 @@ public class CoinPickup : MonoBehaviour {
 	void Start(){
         if (playSpawnSoundAtSpawn){
             spawnSound.Post(gameObject);
+
         }
 	}
 

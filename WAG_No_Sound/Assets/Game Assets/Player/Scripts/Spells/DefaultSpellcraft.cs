@@ -11,6 +11,8 @@ using System.Collections.Generic;
 public class DefaultSpellcraft : MonoBehaviour
 {
     [System.Serializable]
+
+    public AudioSource audioSource;
     public class ChargeInfo
     {
         public List<Spell> OnCharge;

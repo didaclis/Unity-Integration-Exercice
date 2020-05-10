@@ -14,6 +14,7 @@ public class EvilSpitPlantAI : Creature
     public GameObject chargeParticles;
     public GameObject shootParticles;
     public GameObject spitBulletSpawnPoint;
+    public AudioSource audioSource;
 
     #region private variables
     private bool hasSpawned = false;
