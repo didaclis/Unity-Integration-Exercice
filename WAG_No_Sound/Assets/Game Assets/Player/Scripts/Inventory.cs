@@ -34,6 +34,14 @@ public class Inventory : MonoBehaviour
     [Header("B Icon")]
     public GameObject StatusObject;
 
+    [Header("SFX Clips")]
+    public AudioClip close;
+    public AudioClip open;
+    public AudioClip scroll;
+    public AudioClip select;
+
+    AudioSource audio_source;
+
     [System.Serializable]
     public class PositionContainers
     {
@@ -115,6 +123,7 @@ public class Inventory : MonoBehaviour
         MarkerImage_Row1 = OriginalPositions.Row1[2].transform.Find("Marker").GetComponent<Image>();
         MarkerImage_Row2 = OriginalPositions.Row2[2].transform.Find("Marker").GetComponent<Image>();
         MarkerImage_Row3 = OriginalPositions.Row3[2].transform.Find("Marker").GetComponent<Image>();
+        audio_source = GetComponent<AudioSource>();
 
         for (int i = 0; i < 3; i++) { CanPressLefts.Add(false); }
         for (int i = 0; i < 3; i++) { CanPressRights.Add(false); }
@@ -621,11 +630,13 @@ public class Inventory : MonoBehaviour
         }
 
         MarkerVisibility(SelectedRow);
+        audio_source.PlayOneShot(scroll, 0.7F);
     }
     void OnArrowDown()
     {
         SelectedRow = RowShift + ((SelectedRow += 1) % RowAmount);
         MarkerVisibility(SelectedRow);
+        audio_source.PlayOneShot(scroll, 0.7F);
     }
 
 
@@ -725,6 +736,7 @@ public class Inventory : MonoBehaviour
             InputManager.OnLeftArrowDown += ArrowPressLeft;
 
             GameManager.Instance.BlurCam();
+            audio_source.PlayOneShot(open, 0.7F);
         }
     }
 
@@ -746,6 +758,7 @@ public class Inventory : MonoBehaviour
             {
                 GameManager.Instance.UnBlurCam();
             }
+            audio_source.PlayOneShot(close, 0.7F);
         }
     }
 
@@ -757,6 +770,7 @@ public class Inventory : MonoBehaviour
         if (CanPressRights[SelectedRow])
         {
             ButtonIncrement(SelectedRow);
+            audio_source.PlayOneShot(scroll, 0.7F);
         }
         else
         {
@@ -768,6 +782,7 @@ public class Inventory : MonoBehaviour
         if (CanPressLefts[SelectedRow])
         {
             InversedIncrement(SelectedRow);
+            audio_source.PlayOneShot(scroll, 0.7F);
         }
         else
         {

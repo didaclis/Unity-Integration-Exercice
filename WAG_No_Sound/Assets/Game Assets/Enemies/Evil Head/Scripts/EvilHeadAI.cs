@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class EvilHeadAI : Creature
 {
+    AudioSource audio_source;
     [Header("Evil Head Specifics")]
     public GameObject SmokeFX;
     public GameObject deathFX;
@@ -42,6 +43,7 @@ public class EvilHeadAI : Creature
         {
             anim = GetComponent<Animator>();
         }
+        audio_source = GetComponent<AudioSource>();
     }
 
     public override void Start(){
