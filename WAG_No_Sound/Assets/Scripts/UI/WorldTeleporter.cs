@@ -25,7 +25,7 @@ public class WorldTeleporter : MonoBehaviour
     public string destinationKeyPrefix = "dropdown_";
 
     [Header("SFX")]
-    public AudioSource tpAudio;
+    AudioSource tpAudio;
 
     [Header("VFX")]
     public GameObject teleportParticles;
