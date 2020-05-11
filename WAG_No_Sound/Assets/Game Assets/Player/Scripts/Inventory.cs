@@ -630,13 +630,11 @@ public class Inventory : MonoBehaviour
         }
 
         MarkerVisibility(SelectedRow);
-        audio_source.PlayOneShot(scroll, 0.7F);
     }
     void OnArrowDown()
     {
         SelectedRow = RowShift + ((SelectedRow += 1) % RowAmount);
         MarkerVisibility(SelectedRow);
-        audio_source.PlayOneShot(scroll, 0.7F);
     }
 
 
@@ -770,7 +768,6 @@ public class Inventory : MonoBehaviour
         if (CanPressRights[SelectedRow])
         {
             ButtonIncrement(SelectedRow);
-            audio_source.PlayOneShot(scroll, 0.7F);
         }
         else
         {
@@ -782,7 +779,6 @@ public class Inventory : MonoBehaviour
         if (CanPressLefts[SelectedRow])
         {
             InversedIncrement(SelectedRow);
-            audio_source.PlayOneShot(scroll, 0.7F);
         }
         else
         {
@@ -805,7 +801,7 @@ public class Inventory : MonoBehaviour
     public void ButtonIncrement(int layer)
     {
         InventorySelectSound.Post(gameObject);
-
+        audio_source.PlayOneShot(scroll, 0.7F);
         if (Panel.activeInHierarchy && hasShown)
         {
             if (layer == 0)
@@ -829,6 +825,7 @@ public class Inventory : MonoBehaviour
     public void InversedIncrement(int layer)
     {
         InventorySelectSound.Post(gameObject);
+        audio_source.PlayOneShot(scroll, 0.7F);
         if (Panel.activeInHierarchy && hasShown)
         {
             if (layer == 0)

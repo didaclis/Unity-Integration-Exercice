@@ -13,6 +13,10 @@ namespace QuestSystem
     public delegate void QuestGiverEvent(QuestGiver questGiver);
     public class QuestGiver : InteractableNPC
     {
+        public AudioClip questcomplete_clip;
+        public AudioClip questfailed_clip;
+        private AudioSource audio_source;
+
         public static event QuestGiverEvent OnQuestlineForcedChangeStarted;
         public static event QuestGiverEvent OnQuestlineForcedChangeEnded;
         public event QuestGiverEvent OnQuestlineComplete;
@@ -33,6 +37,10 @@ namespace QuestSystem
         private IEnumerator interactionRoutine;
         #endregion
 
+        private void Awake()
+        {
+            audio_source = GetComponent<AudioSource>();
+        }
         private void Start()
         {
             if (StartQuestLineOnStart)
@@ -87,11 +95,13 @@ namespace QuestSystem
             if (currentQuestIdx < Quests.Count)
             {
                 QuestlineCompleteEvent.Post(gameObject);
+                audio_source.PlayOneShot(questcomplete_clip, 0.7F);
                 InitializeQuest(currentQuestIdx);
             }
             else
             {
                 QuestlineCompleteEvent.Post(gameObject);
+                audio_source.PlayOneShot(questfailed_clip, 0.7F);
                 if (OnQuestlineComplete != null)
                 {
                     OnQuestlineComplete(this);
