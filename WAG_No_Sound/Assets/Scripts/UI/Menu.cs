@@ -25,9 +25,19 @@ public class Menu : MonoBehaviour
     public AnimatedObjectActiveHandler QuestBox;
     public bool GetMouseWithP = false;
 
+    [Header("SFX")]
+    private AudioSource audio_source;
+    public AudioClip open_clip;
+    public AudioClip close_clip;
+
     public MenuEvent OnMenuDown;
 
     private bool menuOpen = false;
+
+    private void Awake()
+    {
+        audio_source = GetComponent<AudioSource>();
+    }
 
     public void Update()
     {
@@ -56,9 +66,9 @@ public class Menu : MonoBehaviour
             {
                 MenuOpenSound.Post(gameObject);
                 MenuRTPC.SetGlobalValue(100f);
+                audio_source.PlayOneShot(open_clip, 0.7F);
                 GameManager.Instance.gameSpeedHandler.PauseGameSpeed(gameObject.GetInstanceID());
                 GameManager.Instance.BlurCam();
-
                 QuestBox.EnableObject(0.5f);
 #if UNITY_STANDALONE
                 PlayerManager.Instance.cameraScript.FreezeAndShowCursor(true, gameObject);
@@ -68,6 +78,7 @@ public class Menu : MonoBehaviour
             else
             {
                 MenuCloseSound.Post(gameObject);
+                audio_source.PlayOneShot(close_clip, 0.7F);
                 MenuRTPC.SetGlobalValue(0f);
                 GameManager.Instance.gameSpeedHandler.UnPauseGameSpeed(gameObject.GetInstanceID());
                 GameManager.Instance.UnBlurCam();
