@@ -5834,6 +5834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6903458b4f84f85bae8eaceb15c6a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arcane_blast_sfx: {fileID: 8300000, guid: 5e25f90cfe8c120499d14ffcf0c5e1cd, type: 3}
   Spellcraft:
   - spellName: Arcane Bolt
     Charge:
@@ -5850,19 +5851,23 @@ MonoBehaviour:
   SpellCast:
     idInternal: -1657715331
     valueGuidInternal: 568df393099a4342a38e8d7819014897
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 41bfbad2837b4f745bcb2707af349834,
+      type: 2}
   SpellChargeStart:
     idInternal: -921078123
     valueGuidInternal: c576729b4fb32a409f1cc83a9200dfaa
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: cbaa50d43d3bab64ea179e69bfd49939,
+      type: 2}
   SpellChargeStop:
     idInternal: -1605180211
     valueGuidInternal: 46b3f93a9ef64b4ca9d1f52b13f73cc5
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 80bd54a2040399142ad3f10d92cb1362,
+      type: 2}
   SpellChargeLevel:
     idInternal: 1744050084
     valueGuidInternal: 7e4ad172fe092e4b8dc0a4bce45b2a0d
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 99fae035125a1264984ccc6c7009bc9c,
+      type: 2}
 --- !u!54 &54086396311597208
 Rigidbody:
   m_ObjectHideFlags: 0

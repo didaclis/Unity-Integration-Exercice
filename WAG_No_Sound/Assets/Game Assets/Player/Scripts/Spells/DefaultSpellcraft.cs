@@ -10,6 +10,8 @@ using System.Collections.Generic;
 
 public class DefaultSpellcraft : MonoBehaviour
 {
+    AudioSource audio_source;
+    public AudioClip arcane_blast_sfx;
     [System.Serializable]
 
     public class ChargeInfo
@@ -184,6 +186,8 @@ public class DefaultSpellcraft : MonoBehaviour
                     // SPELL SOUND
                     SpellChargeLevel.SetGlobalValue(Spellcraft[SpellSelect].Charge.ChargeAmount * 100);
                     SpellCast.Post(this.gameObject);
+                    audio_source.clip = arcane_blast_sfx;
+                    audio_source.Play();
                 }
             }
         }
@@ -194,5 +198,5 @@ public class DefaultSpellcraft : MonoBehaviour
             Spellcraft[SpellSelect].Charge.OnCharge[s].Deactivate();
         }
     }
-
 }
+
