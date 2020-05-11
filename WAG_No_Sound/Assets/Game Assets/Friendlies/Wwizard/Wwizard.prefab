@@ -55,6 +55,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -241,6 +242,8 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   daytime: 0
   AttackType: 0
+  audio_clip_staff: {fileID: 0}
+  audio_clip_poof: {fileID: 0}
   PoofGimmickSound:
     idInternal: 1035173718
     valueGuidInternal: 6f80b0c72ee41348ada18f99bdd38112
@@ -273,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupParticles: {fileID: 0}
   DestroyOnPickup: 0
+  pick_up_sound: {fileID: 0}
   pickupAnimationOnInteract: 0
   hoverEffect: 0
   hoverScale: 0.1
@@ -483,9 +487,10 @@ AudioSource:
   m_GameObject: {fileID: 1000012370163554}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 63d74d969c3be514890c581105a71a3a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 7c3635a70410cd0468cbf69c3d919107, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -729,6 +734,7 @@ MonoBehaviour:
   m_Material: {fileID: 2100000, guid: 97b88fc18c66845bd9082cda004e7db5, type: 2}
   m_Color: {r: 0.94482756, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -958,6 +964,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1010,8 +1017,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223133292894514}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0, g: 0.5448277, b: 1, a: 1}
   m_Intensity: 8
   m_Range: 1.1998901
@@ -1077,6 +1085,7 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1462,6 +1471,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1957,6 +1967,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2459,6 +2470,7 @@ LineRenderer:
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2695,6 +2707,7 @@ MonoBehaviour:
   m_Material: {fileID: 2100000, guid: 97b88fc18c66845bd9082cda004e7db5, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
