@@ -11,6 +11,11 @@ using UnityEngine;
 public class EvilHeadAI : Creature
 {
     AudioSource audio_source;
+    public AudioClip hover_audio_clip;
+    public AudioClip charge_audio_clip;
+    public AudioClip death_audio_clip;
+    public AudioClip bite_audio_clip;
+    public AudioClip telegraph_audio_clip;
     [Header("Evil Head Specifics")]
     public GameObject SmokeFX;
     public GameObject deathFX;
@@ -49,7 +54,8 @@ public class EvilHeadAI : Creature
     public override void Start(){
 		base.Start();
         HoverSoundStart.Post(this.gameObject);
-	}
+
+    }
 
     public override void OnSpotting()
     {
@@ -121,7 +127,8 @@ public class EvilHeadAI : Creature
         //print(Time.realtimeSinceStartup + ": ChargeTowardsPlayer");
         TelegraphSound.Stop(gameObject,0, AkCurveInterpolation.AkCurveInterpolation_Linear);
         ChargeSound.Post(gameObject);
-
+        audio_source.clip = charge_audio_clip;
+        audio_source.Play();
         Vector3 currentPosition = transform.position;
         Vector3 destination = targetLocation + ((targetLocation) - currentPosition).normalized * 2f;
 
@@ -134,12 +141,10 @@ public class EvilHeadAI : Creature
         }
         ReenableMovement();
     }
-
     public override void OnDeathAnimation()
     {
         base.OnDeathAnimation();
         isAlive = false;
-
         if (chargeRoutine != null)
         {
             StopCoroutine(chargeRoutine);
@@ -159,6 +164,8 @@ public class EvilHeadAI : Creature
         {
             StopCoroutine(chargeRoutine);
         }
+        audio_source.clip = telegraph_audio_clip;
+        audio_source.Play();
         ReenableMovement();
     }
 
@@ -167,7 +174,6 @@ public class EvilHeadAI : Creature
         SetMovementSpeed(0f);
         //print(Time.realtimeSinceStartup + ": Explode");
         HoverSoundEnd.Post(this.gameObject);
-
         GameObject fx = (GameObject)Instantiate(deathFX, transform.position, Quaternion.identity);
         Destroy(fx, 5f);
 
@@ -181,8 +187,9 @@ public class EvilHeadAI : Creature
             }
             Destroy(keepOnDeath, 5f);
         }
-
         PlayCreatureDeathSound();
+        audio_source.clip = death_audio_clip;
+        audio_source.Play();
         Destroy(gameObject);
     }
 
@@ -192,5 +199,7 @@ public class EvilHeadAI : Creature
     public void PlayBiteSound()
     {
         BiteSound.Post(this.gameObject);
+        audio_source.clip = bite_audio_clip;
+        audio_source.Play();
     }
 }

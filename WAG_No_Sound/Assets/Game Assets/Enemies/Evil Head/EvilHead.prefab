@@ -4672,6 +4672,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4735,6 +4736,7 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5115,6 +5117,12 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   daytime: 0
   AttackType: 8
+  hover_audio_clip: {fileID: 8300000, guid: e559f84a62969d04e83d8c73e2dd960c, type: 3}
+  charge_audio_clip: {fileID: 8300000, guid: 4b02b4c2a6cfb444bb1ab4fee1a69677, type: 3}
+  death_audio_clip: {fileID: 8300000, guid: 52ae9fb0c2cef8842822ef954e055ba4, type: 3}
+  bite_audio_clip: {fileID: 8300000, guid: dc48ecc1bff474845a8de3f7460352b8, type: 3}
+  telegraph_audio_clip: {fileID: 8300000, guid: e61e2f0bbd84e874cadbbda8fb335e6e,
+    type: 3}
   SmokeFX: {fileID: 1000012016212088}
   deathFX: {fileID: 1000013139223148, guid: f5963bb22ede54f15ab3ddb9e132c119, type: 3}
   keepOnDeath: {fileID: 1000012016212088}
@@ -5352,6 +5360,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10124,6 +10133,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

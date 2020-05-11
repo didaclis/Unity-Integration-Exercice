@@ -9,6 +9,9 @@ using UnityEngine.AI;
 
 public class WwizardAI : Creature
 {
+    AudioSource audio_source;
+    public AudioClip audio_clip_staff;
+    public AudioClip audio_clip_poof;
     [Header("Wwise")]
     public AK.Wwise.Event PoofGimmickSound;
     public AK.Wwise.Event StaffHitGroundSound;
@@ -33,7 +36,10 @@ public class WwizardAI : Creature
     private readonly int randomTalkHash = Animator.StringToHash("RandomTalk");
 
     #endregion
-
+    private void Awake()
+    {
+        audio_source = GetComponent<AudioSource>();
+    }
     public void TalkAnimation_CalculateNew()
     {
         if (anim != null)
@@ -59,6 +65,8 @@ public class WwizardAI : Creature
         {
             GameObject p = Instantiate(Gimmick1PoofParticles, Gimmick1PoofTransform.transform.position + Gimmick1Displacement, Quaternion.identity) as GameObject;
             PoofGimmickSound.Post(p);
+            audio_source.clip = audio_clip_poof;
+            audio_source.Play();
             Destroy(p, 5f);
         }
     }
@@ -98,5 +106,7 @@ public class WwizardAI : Creature
     {
         matChecker.CheckMaterial(gameObject);
         StaffHitGroundSound.Post(gameObject);
+        audio_source.clip = audio_clip_staff;
+        audio_source.Play();
     }
 }

@@ -11,6 +11,9 @@ using UnityEngine.Events;
 
 public class Weapon : MonoBehaviour, IInteractable
 {
+    AudioSource audio_source;
+    public AudioClip weapon_hit_sound;
+    public AudioClip weapon_impact_sound;
     [Header("WWISE")]
     public AK.Wwise.Event WeaponImpact = new AK.Wwise.Event();
     public AK.Wwise.Switch WeaponTypeSwitch = new AK.Wwise.Switch();
@@ -58,8 +61,11 @@ public class Weapon : MonoBehaviour, IInteractable
     [HideInInspector]
     public bool applyBonusDamage = false;
     #endregion
-
-    public void EnableHitbox()
+    private void Awake()
+    {
+        audio_source = GetComponent<AudioSource>();
+    }
+        public void EnableHitbox()
     {
         //Reset list of already hit GameObjects (since this is a new swing)
         alreadyHitObjects.Clear();
@@ -228,6 +234,8 @@ public class Weapon : MonoBehaviour, IInteractable
                 GameManager.DamageObject(col.gameObject, attack);
                 WeaponTypeSwitch.SetValue(transform.parent.gameObject); // Weapon Type
                 WeaponImpact.Post(transform.parent.gameObject);
+                audio_source.clip = weapon_impact_sound;
+                audio_source.Play();
             }
         }
     }
@@ -236,7 +244,8 @@ public class Weapon : MonoBehaviour, IInteractable
         //WeaponTypeSwitch.SetValue(transform.parent.gameObject); // Weapon Type
         alreadyHitObjects.Add(HitObj);
         WeaponImpact.Post(transform.parent.gameObject);
-
+        audio_source.clip = weapon_hit_sound;
+        audio_source.Play();
     }
 
 }

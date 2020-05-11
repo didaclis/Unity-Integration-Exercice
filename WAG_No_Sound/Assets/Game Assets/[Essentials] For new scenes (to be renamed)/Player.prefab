@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 4000013893473256}
   - component: {fileID: 20964920851162508}
   - component: {fileID: 124000013145151562}
-  - component: {fileID: 92000013538511428}
   m_Layer: 0
   m_Name: PickupCamera
   m_TagString: Untagged
@@ -107,14 +106,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!124 &124000013145151562
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010320867964}
-  m_Enabled: 1
---- !u!92 &92000013538511428
 Behaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -645,7 +636,9 @@ MonoBehaviour:
   playerAnimator: {fileID: 95636515816211616}
   runParticles: {fileID: 1000011273223974, guid: a676ddf5cf5fc448fa366c97e12f0f69,
     type: 3}
-  footsteps: {fileID: 0}
+  footsteps: {fileID: 8300000, guid: 5e3724d133a4c7b4a977a97b81b3c412, type: 3}
+  swing_audio_clip: {fileID: 8300000, guid: 94c32b55fb95aa04a86c9751e55399f3, type: 3}
+  get_item_audio_clip: {fileID: 8300000, guid: 545d2768f0365df49a4290f19556265d, type: 3}
 --- !u!114 &114079635815798764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,6 +870,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5638,6 +5632,7 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6055,6 +6050,7 @@ MeshRenderer:
   m_MotionVectors: 0
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6095,6 +6091,7 @@ MonoBehaviour:
   pickupParticles: {fileID: 1894904992786936, guid: 987e140e2b762426d936c5cce95fb93a,
     type: 3}
   DestroyOnPickup: 0
+  pick_up_sound: {fileID: 0}
   pickupAnimationOnInteract: 1
   hoverEffect: 0
   hoverScale: 0.1
@@ -6429,6 +6426,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6677,6 +6675,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6751,6 +6750,7 @@ MonoBehaviour:
   pickupParticles: {fileID: 1894904992786936, guid: 987e140e2b762426d936c5cce95fb93a,
     type: 3}
   DestroyOnPickup: 0
+  pick_up_sound: {fileID: 0}
   pickupAnimationOnInteract: 1
   hoverEffect: 1
   hoverScale: 0.1
@@ -7341,7 +7341,6 @@ GameObject:
   - component: {fileID: 4066878171179796}
   - component: {fileID: 20190570369488074}
   - component: {fileID: 124100573010587978}
-  - component: {fileID: 92624858795429700}
   m_Layer: 0
   m_Name: WeaponCamera
   m_TagString: Untagged
@@ -7407,14 +7406,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!124 &124100573010587978
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099419021331848}
-  m_Enabled: 1
---- !u!92 &92624858795429700
 Behaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12082,6 +12073,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12184,6 +12176,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12262,6 +12255,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12391,6 +12385,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12425,9 +12420,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 15
+  m_CookingOptions: 31
   m_Mesh: {fileID: 4300000, guid: 7405fa2ec73a44674b925ae3f6bb6988, type: 2}
 --- !u!135 &135479230515063406
 SphereCollider:
@@ -12457,6 +12452,7 @@ MonoBehaviour:
   pickupParticles: {fileID: 1894904992786936, guid: 987e140e2b762426d936c5cce95fb93a,
     type: 3}
   DestroyOnPickup: 0
+  pick_up_sound: {fileID: 0}
   pickupAnimationOnInteract: 1
   hoverEffect: 1
   hoverScale: 0.1
@@ -17094,6 +17090,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -17171,6 +17168,7 @@ MonoBehaviour:
   pickupParticles: {fileID: 1894904992786936, guid: 987e140e2b762426d936c5cce95fb93a,
     type: 3}
   DestroyOnPickup: 0
+  pick_up_sound: {fileID: 0}
   pickupAnimationOnInteract: 1
   hoverEffect: 1
   hoverScale: 0.1
@@ -21831,6 +21829,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -21890,7 +21889,6 @@ GameObject:
   - component: {fileID: 4228999277920300}
   - component: {fileID: 20000011381743246}
   - component: {fileID: 124160674740162366}
-  - component: {fileID: 92482122137027178}
   m_Layer: 0
   m_Name: WeaponCamera
   m_TagString: Untagged
@@ -21956,14 +21954,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!124 &124160674740162366
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607240981683446}
-  m_Enabled: 1
---- !u!92 &92482122137027178
 Behaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22082,6 +22072,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -31151,6 +31142,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -31253,6 +31245,7 @@ MeshRenderer:
   m_MotionVectors: 0
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -31323,6 +31316,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

@@ -9,6 +9,11 @@ using System.Collections;
 
 public class EvilSpitPlantAI : Creature
 {
+    public AudioClip shoot_audio_clip;
+    public AudioClip charge_audio_clip;
+    public AudioClip death_audio_clip;
+    public AudioClip hurt_audio_clip;
+    AudioSource audio_source;
     [Header("Custom Creature Options:")]
     public GameObject bulletPrefab;
     public GameObject chargeParticles;
@@ -29,6 +34,11 @@ public class EvilSpitPlantAI : Creature
     public AK.Wwise.Event ChargeSound = new AK.Wwise.Event();
     public AK.Wwise.Event Death_Headfall = new AK.Wwise.Event();
     public AK.Wwise.Event asdasdasfasda;
+
+    private void Awake()
+    {
+        audio_source = GetComponent<AudioSource>();
+    }
 
     public override void OnSpotting()
     {
@@ -60,7 +70,8 @@ public class EvilSpitPlantAI : Creature
         if (targetOfNPC != null && !GameManager.Instance.AIPaused)
         {
             AttackSound.Post(this.gameObject);
-
+            audio_source.clip = shoot_audio_clip;
+            audio_source.Play();
             GameObject bullet = Instantiate(bulletPrefab, spitBulletSpawnPoint.transform.position, Quaternion.LookRotation(transform.forward)) as GameObject; //TODO: Pool spitbullets
             bullet.GetComponent<EvilSpitPlantProjectile>().parent = gameObject;
             bullet.GetComponent<EvilSpitPlantProjectile>().damage = this.AttackDamage;
@@ -72,6 +83,8 @@ public class EvilSpitPlantAI : Creature
 
     public void PlayChargeSound()
     {
+        audio_source.clip = charge_audio_clip;
+        audio_source.Play();
         ChargeSound.Post(gameObject);
     }
 
@@ -99,6 +112,8 @@ public class EvilSpitPlantAI : Creature
     public override void OnDamageReset()
     {
         base.OnDamageReset();
+        audio_source.clip = hurt_audio_clip;
+        audio_source.Play();
         lockRotation = false;
     }
 
@@ -138,6 +153,8 @@ public class EvilSpitPlantAI : Creature
 
     public void OnDeathHeadFall()
     {
+        audio_source.clip = death_audio_clip;
+        audio_source.Play();
         Death_Headfall.Post(this.gameObject);
     }
 }

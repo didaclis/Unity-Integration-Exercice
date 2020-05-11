@@ -10,6 +10,8 @@ using System.Collections.Generic;
 
 public class EvilSpitPlantProjectile : MonoBehaviour
 {
+    AudioSource audio_source;
+    public AudioClip hit_impact_audio_clip;
     [Header("Wwise")]
     public AK.Wwise.Event ContinuousSoundStart;
     public AK.Wwise.Event ContinuousSoundStop;
@@ -37,6 +39,10 @@ public class EvilSpitPlantProjectile : MonoBehaviour
     private bool isExploding;
     private IEnumerator movementRoutine;
     #endregion
+    private void Awake()
+    {
+        audio_source = GetComponent<AudioSource>();
+    }
 
     void OnEnable()
     {
@@ -138,10 +144,13 @@ public class EvilSpitPlantProjectile : MonoBehaviour
             if (hitSomething)
             {
                 ImpactSound.Post(go.gameObject);
+                audio_source.clip = hit_impact_audio_clip;
+                audio_source.Play();
             }
             else
             {
                 NoImpactSound.Post(go.gameObject);
+
             }
 
             Destroy(go, 5f);

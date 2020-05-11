@@ -12,7 +12,8 @@ public class Pickup : MonoBehaviour, IInteractable
 {
 	public GameObject pickupParticles;
 	public bool DestroyOnPickup = false;
-
+	public AudioClip pick_up_sound;
+	AudioSource audio_source;
 	[Header("Animation Properties")]
 	public bool pickupAnimationOnInteract = true;
 	public bool hoverEffect = true;
@@ -193,6 +194,8 @@ public class Pickup : MonoBehaviour, IInteractable
 			{
 				
 				PickUpEvent.Post(gameObject);
+				audio_source.clip = pick_up_sound;
+				audio_source.Play();
 			}
 			if (pickupParticles != null)
 			{

@@ -24,6 +24,8 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
     private PlayerFoot foot_L;
     private PlayerFoot foot_R;
     public AudioClip footsteps;
+    public AudioClip swing_audio_clip;
+    public AudioClip get_item_audio_clip;
     AudioSource audioSource;
 
     #region private variables
@@ -92,6 +94,7 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
                     if (foot_L.FootstepSound.Validate())
                     { 
                         foot_L.PlayFootstepSound();
+                        audioSource.clip = footsteps;
                         audioSource.Play();
                         particlePosition = foot_L.transform.position;
                         FootstepParticles(particlePosition);
@@ -102,6 +105,7 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
                     if (foot_R.FootstepSound.Validate())
                     {
                         foot_R.PlayFootstepSound();
+                        audioSource.clip = footsteps;
                         audioSource.Play();
                         particlePosition = foot_R.transform.position;
                         FootstepParticles(particlePosition);
@@ -149,6 +153,8 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
         Weapon W = PlayerManager.Instance.equippedWeaponInfo;
         W.WeaponTypeSwitch.SetValue(PlayerManager.Instance.weaponSlot);
         Swing.Post(PlayerManager.Instance.weaponSlot);
+        audioSource.clip = swing_audio_clip;
+        audioSource.Play();
     }
 
     public void PauseMovement()
@@ -185,6 +191,8 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
     {
         PlayerManager.Instance.PickUpEvent();
         GetItem.Post(this.gameObject);
+        audioSource.clip = get_item_audio_clip;
+        audioSource.Play();
         GetItemStinger.Post(GameManager.Instance.MusicGameObject);
     }
 
