@@ -45,6 +45,7 @@ public class WwizardAI : Creature
         if (anim != null)
         {
             anim.SetFloat(randomTalkHash, Random.Range(0f, 1f));
+            print("HOLA");
         }
     }
 

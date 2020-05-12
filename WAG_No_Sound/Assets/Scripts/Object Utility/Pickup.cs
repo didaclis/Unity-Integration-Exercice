@@ -44,7 +44,10 @@ public class Pickup : MonoBehaviour, IInteractable
 	//Events
 	public UnityEvent OnBecameFocus;
 	public UnityEvent OnInteraction;
-
+	private void Awake()
+	{
+		audio_source = GetComponent<AudioSource>();
+	}
 	void Start()
 	{
 		randomOffset = Random.Range(0, 2 * Mathf.PI);
@@ -163,10 +166,12 @@ public class Pickup : MonoBehaviour, IInteractable
 	{
 		if (col.CompareTag("Player") && !addedToInteractManager)
 		{
+			print("pito");
 			if (InteractionEnabled)
 			{
 				InteractionManager.SetCanInteract(gameObject, true);
 				addedToInteractManager = true;
+				print("teta");
 			}
 		}
 	}
@@ -194,8 +199,11 @@ public class Pickup : MonoBehaviour, IInteractable
 			{
 				
 				PickUpEvent.Post(gameObject);
-				audio_source.clip = pick_up_sound;
-				audio_source.Play();
+				if (!this.gameObject.CompareTag("Wwizard"))
+				{
+					audio_source.clip = pick_up_sound;
+					audio_source.Play();
+				}			
 			}
 			if (pickupParticles != null)
 			{
