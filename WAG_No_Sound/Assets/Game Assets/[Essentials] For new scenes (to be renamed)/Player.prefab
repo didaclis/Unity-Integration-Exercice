@@ -619,24 +619,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Swing:
-    idInternal: -486224167
-    valueGuidInternal: 806057d62da4bf4f8b2556c419bc2d7e
-    WwiseObjectReference: {fileID: 11400000, guid: 969f37824c90db24c9f4e5185d0e665a,
-      type: 2}
+    idInternal: 0
+    valueGuidInternal: 00000000000000000000000000000000
+    WwiseObjectReference: {fileID: 0}
   GetItem:
-    idInternal: -1282551868
-    valueGuidInternal: 7d893e485bc4d34a818dc2e9b50c4897
-    WwiseObjectReference: {fileID: 11400000, guid: 7605ea41c44a15842bd02d0117f86e89,
-      type: 2}
+    idInternal: 0
+    valueGuidInternal: 00000000000000000000000000000000
+    WwiseObjectReference: {fileID: 0}
   GetItemStinger:
-    idInternal: 2029038382
-    valueGuidInternal: 1daaf35222055c4da496dfa8a283ef95
-    WwiseObjectReference: {fileID: 11400000, guid: cc97831ec2951944082fbeee57d4f281,
-      type: 2}
+    idInternal: 0
+    valueGuidInternal: 00000000000000000000000000000000
+    WwiseObjectReference: {fileID: 0}
   playerAnimator: {fileID: 95636515816211616}
   runParticles: {fileID: 1000011273223974, guid: a676ddf5cf5fc448fa366c97e12f0f69,
     type: 3}
-  footsteps: {fileID: 8300000, guid: 5e3724d133a4c7b4a977a97b81b3c412, type: 3}
+  footsteps_run_dirt:
+  - {fileID: 8300000, guid: c523fadf799ea8844bb4a1b8fdfa656b, type: 3}
+  - {fileID: 8300000, guid: 3648b64f7e194bb408d529c37bdc8b07, type: 3}
+  - {fileID: 8300000, guid: 3e7651d81e5d65d43989e4e75d16e580, type: 3}
+  - {fileID: 8300000, guid: 0c8b820d8b835e648ade81becb36097c, type: 3}
+  - {fileID: 8300000, guid: d64f9ee2002f27d45a0244c31b63c772, type: 3}
+  - {fileID: 8300000, guid: 5e3724d133a4c7b4a977a97b81b3c412, type: 3}
+  footsteps_walk_dirt:
+  - {fileID: 8300000, guid: 439052906b6df3247b7a947e8be2ac75, type: 3}
+  - {fileID: 8300000, guid: e513a881eae19eb40bde6fa1e7486d5a, type: 3}
+  - {fileID: 8300000, guid: a66fa71eb727359418ad8f094df83653, type: 3}
+  - {fileID: 8300000, guid: 12a647674954e4c46899bf41543d6450, type: 3}
+  - {fileID: 8300000, guid: d26de09d1082c014cacd161f565f00d4, type: 3}
+  - {fileID: 8300000, guid: 3fe3e41472eff5c4087ac52b2dfc2a6e, type: 3}
+  footsteps_run_grass:
+  - {fileID: 8300000, guid: dbe1c141ed6fea1499b0f43f4798da01, type: 3}
+  - {fileID: 8300000, guid: c7ebfe6c670967945b1183664d83519b, type: 3}
+  - {fileID: 8300000, guid: 079f7ec6e0249e34b8436588e8621cce, type: 3}
+  - {fileID: 8300000, guid: a7b45451c2a8e774581374689c3a284c, type: 3}
+  - {fileID: 8300000, guid: 8e96b13caaf0e3c4ea719eabfd513119, type: 3}
+  - {fileID: 8300000, guid: 98d1633ac71f4e9449a3671b3db28138, type: 3}
+  footsteps_walk_grass:
+  - {fileID: 8300000, guid: 357346fbdc96b17458316d6891ae7797, type: 3}
+  - {fileID: 8300000, guid: 32b85e64083d7a0469b2ebeae9e28188, type: 3}
+  - {fileID: 8300000, guid: 5601e289321d286409e57c3a27dd813c, type: 3}
+  - {fileID: 8300000, guid: 2ba4ce5c086257947a6b912d3d3b4080, type: 3}
+  - {fileID: 8300000, guid: 7230cc07a0e323c46a2a1ae0cf751e7d, type: 3}
+  - {fileID: 8300000, guid: ec42d92e098acbc41b57eda75fc624fa, type: 3}
+  footsteps_run_rubble:
+  - {fileID: 8300000, guid: 76a912ce4e67d344aa5de69ce16df8a9, type: 3}
+  - {fileID: 8300000, guid: f64fc993088fb0c46a0f2b0872310db6, type: 3}
+  - {fileID: 8300000, guid: 96396a680db76d94dacff2c49f79796b, type: 3}
+  - {fileID: 8300000, guid: 73e29f4c9b424304688a386184b3b9b3, type: 3}
+  - {fileID: 8300000, guid: 8949476ae16d76243a87bfe1023e6ed1, type: 3}
+  - {fileID: 8300000, guid: ff922fb7949bad64d9e2f612d5a0dd5f, type: 3}
+  footsteps_walk_rubble:
+  - {fileID: 8300000, guid: 26984c96d7da5284cb2d942e83441288, type: 3}
+  - {fileID: 8300000, guid: b56407831d7c69e4a8666146efa57934, type: 3}
+  - {fileID: 8300000, guid: 3601f001c0df15648b33f5b731af3f46, type: 3}
+  - {fileID: 8300000, guid: 7aecb94f2e2ddd546ae86972503894a7, type: 3}
+  - {fileID: 8300000, guid: 52029fd10caa8134b904439bf1003f6b, type: 3}
+  - {fileID: 8300000, guid: 52029fd10caa8134b904439bf1003f6b, type: 3}
   swing_audio_clip: {fileID: 8300000, guid: 94c32b55fb95aa04a86c9751e55399f3, type: 3}
   get_item_audio_clip: {fileID: 8300000, guid: 545d2768f0365df49a4290f19556265d, type: 3}
 --- !u!114 &114079635815798764
