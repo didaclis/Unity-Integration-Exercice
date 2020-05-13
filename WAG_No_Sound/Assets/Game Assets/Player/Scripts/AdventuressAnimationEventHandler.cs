@@ -6,6 +6,7 @@
 
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AdventuressAnimationEventHandler : MonoBehaviour
 {
@@ -23,7 +24,15 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
 
     private PlayerFoot foot_L;
     private PlayerFoot foot_R;
-    public AudioClip footsteps;
+    public List<AudioClip> footsteps_run_dirt;
+    public List<AudioClip> footsteps_walk_dirt;
+
+    public List<AudioClip> footsteps_run_grass;
+    public List<AudioClip> footsteps_walk_grass;
+
+    public List<AudioClip> footsteps_run_rubble;
+    public List<AudioClip> footsteps_walk_rubble;
+
     public AudioClip swing_audio_clip;
     public AudioClip get_item_audio_clip;
     AudioSource audioSource;
@@ -94,7 +103,7 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
                     if (foot_L.FootstepSound.Validate())
                     { 
                         foot_L.PlayFootstepSound();
-                        audioSource.clip = footsteps;
+                        audioSource.clip = ChangeClipMaterial(foot_L);
                         audioSource.Play();
                         particlePosition = foot_L.transform.position;
                         FootstepParticles(particlePosition);
@@ -105,7 +114,7 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
                     if (foot_R.FootstepSound.Validate())
                     {
                         foot_R.PlayFootstepSound();
-                        audioSource.clip = footsteps;
+                        audioSource.clip = ChangeClipMaterial(foot_R);
                         audioSource.Play();
                         particlePosition = foot_R.transform.position;
                         FootstepParticles(particlePosition);
@@ -113,6 +122,44 @@ public class AdventuressAnimationEventHandler : MonoBehaviour
                 }
             }
         }
+    }
+
+    private AudioClip ChangeClipMaterial(PlayerFoot foot)
+    {
+        if(foot.materialChecker.GetMaterial().ToString() == "Dirt")
+        {
+            if(PlayerManager.Instance.isSprinting)
+            {
+                return footsteps_run_dirt[Random.Range(0, footsteps_run_dirt.Count)];
+            }
+            else
+            {
+                return footsteps_walk_dirt[Random.Range(0, footsteps_walk_dirt.Count)];
+            }
+        }
+        else if (foot.materialChecker.GetMaterial().ToString() == "Grass")
+        {
+            if (PlayerManager.Instance.isSprinting)
+            {
+                return footsteps_run_grass[Random.Range(0, footsteps_run_grass.Count)];
+            }
+            else
+            {
+                return footsteps_walk_grass[Random.Range(0, footsteps_walk_grass.Count)];
+            }
+        }
+        else if (foot.materialChecker.GetMaterial().ToString() == "Rubble")
+        {
+            if (PlayerManager.Instance.isSprinting)
+            {
+                return footsteps_run_rubble[Random.Range(0, footsteps_run_rubble.Count)];
+            }
+            else
+            {
+                return footsteps_walk_rubble[Random.Range(0, footsteps_walk_rubble.Count)];
+            }
+        }
+        return footsteps_run_dirt[0];
     }
 
     void FootstepParticles(Vector3 particlePosition) {
