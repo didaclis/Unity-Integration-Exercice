@@ -112,6 +112,7 @@ public class CreditsSequence : MonoBehaviour
 
     public void SkipCredits()
     {
+        StartCoroutine(FadeOut(GetComponent<AudioSource>(), 1f));
         canvAnim.speed = 5f;
         canvAnim.SetTrigger(fadeOutHash);
     }
@@ -121,4 +122,22 @@ public class CreditsSequence : MonoBehaviour
         MusicEvent.Stop(gameObject);
         InputManager.OnMenuDown -= SkipCredits;
     }
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
+    //public void FadePls()
+    //{
+    //    StartCoroutine(FadeAudioSource.FadeOut(this.GetComponent<AudioSource>(), 0.1f));
+    //}
 }
