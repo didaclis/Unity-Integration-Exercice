@@ -147,6 +147,9 @@ public class EvilHeadAI : Creature
         isAlive = false;
         if (chargeRoutine != null)
         {
+            audio_source.Stop();
+            audio_source.clip = death_audio_clip;
+            audio_source.Play();
             StopCoroutine(chargeRoutine);
         }
 
@@ -188,8 +191,6 @@ public class EvilHeadAI : Creature
             Destroy(keepOnDeath, 5f);
         }
         PlayCreatureDeathSound();
-        audio_source.clip = death_audio_clip;
-        audio_source.Play();
         Destroy(gameObject);
     }
 

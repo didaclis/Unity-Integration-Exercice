@@ -166,12 +166,10 @@ public class Pickup : MonoBehaviour, IInteractable
 	{
 		if (col.CompareTag("Player") && !addedToInteractManager)
 		{
-			print("pito");
 			if (InteractionEnabled)
 			{
 				InteractionManager.SetCanInteract(gameObject, true);
 				addedToInteractManager = true;
-				print("teta");
 			}
 		}
 	}

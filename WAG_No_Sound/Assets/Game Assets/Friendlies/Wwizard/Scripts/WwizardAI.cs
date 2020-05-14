@@ -105,9 +105,10 @@ public class WwizardAI : Creature
 
     public void PlayStaffSound()
     {
-        matChecker.CheckMaterial(gameObject);
-        StaffHitGroundSound.Post(gameObject);
         audio_source.clip = audio_clip_staff;
         audio_source.Play();
+        matChecker.CheckMaterial(gameObject);
+        StaffHitGroundSound.Post(gameObject);
+        Debug.Log("teta");
     }
 }
